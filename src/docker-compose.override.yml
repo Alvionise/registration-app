@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  domainservice.webapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+    ports:
+      - '5000:5000'
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  registrationclient.app:
+    ports:
+        - "4000:80"
+
+  postgres:
+    ports:
+        - '5435:5432'
+    environment:
+        POSTGRES_USER: 'sa'
+        POSTGRES_PASSWORD: 'Qwerty123'
+        POSTGRES_DB: domain-db
+
+volumes:
+  node_modules:

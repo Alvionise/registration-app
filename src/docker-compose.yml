@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  domainservice.webapi:
+    image: ${DOCKER_REGISTRY-}domainservicewebapi
+    build:
+      context: .
+      dockerfile: Services/DomainService/DomainService.WebApi/Dockerfile
+
+  registrationclient.app:
+    image: ${DOCKER_REGISTRY-}registrationclient.app
+    build:
+        context: ./Client/RegistrationClientApp
+        dockerfile: Dockerfile
+
+  postgres:
+    restart: always
+    image: postgres
+
+volumes:
+  node_modules:

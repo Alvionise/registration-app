@@ -1,0 +1,308 @@
+root = true
+# top-most EditorConfig file
+
+# Don't use tabs for indentation.
+[*]
+indent_style = space
+# (Please don't specify an indent_size here; that has too many unintended consequences.)
+
+# ReSharper properties
+resharper_csharp_max_line_length = 240
+resharper_convert_to_local_function_highlighting = none
+# Code files
+[*.{cs,csx}]
+indent_size = 4
+insert_final_newline = true
+
+# Xml project files
+[*.csproj]
+indent_size = 2
+
+# Xml config files
+[*.{props,targets,ruleset,config,nuspec,resx,vsixmanifest,vsct}]
+indent_size = 2
+
+# JSON files
+[*.json]
+indent_size = 2
+
+### CSharp code style settings ###
+# Refer to the documentation https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/
+[*.cs]
+
+# Organize usings
+dotnet_separate_import_directive_groups = false
+dotnet_sort_system_directives_first = true
+
+csharp_style_namespace_declarations = file_scoped
+
+# RS1024: Compare symbols correctly
+# https://github.com/dotnet/roslyn-analyzers/issues/3389
+dotnet_diagnostic.rs1024.severity = none
+
+# CS1591: Missing XML comment for publicly visible type or member
+# We need to turn documentation generation through <GenerateDocumentationFile>true</GenerateDocumentationFile> for unused usings
+# to be reported as errors by CLI build, however we don't want missing XML comments to fail the build, so we ignore 'missing XML comments' rule. Refer to:
+# https://github.com/dotnet/roslyn/issues/50533
+# https://github.com/dotnet/roslyn/issues/41640
+# https://github.com/Azure/bicep/pull/6978/commits/604f6a7c730a7ae9078e41fec472fb21e1abcc61
+dotnet_diagnostic.CS1591.severity = none
+
+# IDE0005: Remove unnecessary import
+dotnet_diagnostic.IDE0005.severity = warning
+
+# IDE0055: Fix formatting
+dotnet_diagnostic.IDE0055.severity = warning
+
+# IDE0011: Add braces
+dotnet_diagnostic.IDE0011.severity = warning
+
+# IDE0161: Use file-scoped namespace
+dotnet_diagnostic.IDE0161.severity = error
+
+# SA1000: Keywords should be spaced correctly
+dotnet_diagnostic.SA1000.severity = error
+
+# SA1001: The spacing around a comma is incorrect, within a C# code file.
+dotnet_diagnostic.SA1001.severity = error
+
+# SA1002: The spacing around a semicolon is incorrect, within a C# code file.
+dotnet_diagnostic.SA1002.severity = error
+
+# SA1003: Symbols should be spaced correctly
+dotnet_diagnostic.SA1003.severity = error
+
+# SA1004: A line within a documentation header above a C# element does not begin with a single space.
+dotnet_diagnostic.SA1004.severity = error
+
+# SA1005: Single line comments should begin with single space
+dotnet_diagnostic.SA1005.severity = error
+
+# SA1006: Preprocessor keywords must not be preceded by space
+dotnet_diagnostic.SA1006.severity = error
+
+# SA1007: Operator keyword must be followed by space
+dotnet_diagnostic.SA1007.severity = error
+
+# SA1008: Opening parenthesis must be spaced correctly
+dotnet_diagnostic.SA1008.severity = error
+
+# SA1009: Closing parenthesis should be spaced correctly
+dotnet_diagnostic.SA1009.severity = error
+
+# SA1010: Opening square brackets must be spaced correctly
+dotnet_diagnostic.SA1010.severity = error
+
+# SA1011: Closing square brackets must be spaced correctly
+dotnet_diagnostic.SA1011.severity = error
+
+# SA1012: Opening braces should be spaced correctly
+dotnet_diagnostic.SA1012.severity = error
+
+# SA1013: Closing braces should be spaced correctly
+dotnet_diagnostic.SA1013.severity = error
+
+# SA1014: Opening generic brackets must be spaced correctly
+dotnet_diagnostic.SA1014.severity = error
+
+# SA1015: Closing generic brackets must be spaced correctly
+dotnet_diagnostic.SA1015.severity = error
+
+# SA1016: Opening attribute brackets must be spaced correctly
+dotnet_diagnostic.SA1016.severity = error
+
+# SA1017: Closing attribute brackets must be spaced correctly
+dotnet_diagnostic.SA1017.severity = error
+
+# SA1021: Negative signs must be spaced correctly
+dotnet_diagnostic.SA1021.severity = error
+
+# SA1022: Positive signs must be spaced correctly
+dotnet_diagnostic.SA1022.severity = error
+
+# SA1025: Code must not contain multiple whitespace in a row
+dotnet_diagnostic.SA1025.severity = error
+
+# SA1026: Code must not contain space after new keyword in implicitly typed array allocation
+dotnet_diagnostic.SA1026.severity = error
+
+# SA1028: Code should not contain trailing whitespace
+dotnet_diagnostic.SA1028.severity = error
+
+# SA1100: Do not prefix calls with base unless local implementation exists
+dotnet_diagnostic.SA1100.severity = warning
+
+# SA1101: Prefix local calls with this
+dotnet_diagnostic.SA1101.severity = none
+
+# SA1111: Closing parenthesis should be on line of last parameter
+dotnet_diagnostic.SA1111.severity = none
+
+# SA1116: Split parameters should start on line after declaration
+dotnet_diagnostic.SA1116.severity = none
+
+# SA1117: Parameters should be on same line or separate lines
+dotnet_diagnostic.SA1117.severity = none
+
+# SA1122: Use string.Empty for empty strings
+dotnet_diagnostic.SA1122.severity = error
+
+# SA1127: Generic type constraints should be on their own line
+dotnet_diagnostic.SA1127.severity = none
+
+# SA1128: Put constructor initializers on their own line
+dotnet_diagnostic.SA1128.severity = none
+
+# SA1200: Using directives should be placed correctly
+dotnet_diagnostic.SA1200.severity = none
+
+# SA1201: An element within a C# code file is out of order in relation to the other elements in the code.
+dotnet_diagnostic.SA1201.severity = none
+
+# SA1202: An element within a C# code file is out of order within regard to access level, in relation to other elements in the code.
+dotnet_diagnostic.SA1202.severity = none
+
+# SA1203: Constants should appear before fields
+dotnet_diagnostic.SA1203.severity = warning
+
+# SA1204: Static elements should appear before instance elements
+dotnet_diagnostic.SA1204.severity = none
+
+# SA1205: The partial element does not have an access modifier defined.
+dotnet_diagnostic.SA1205.severity = warning
+
+# SA1206: The keywords within the declaration of an element do not follow a standard ordering scheme.
+dotnet_diagnostic.SA1206.severity = warning
+
+# SA1208: A using directive which declares a member of the System namespace appears after a using directive which declares a member of a different namespace, within a C# code file.
+dotnet_diagnostic.SA1208.severity = warning
+
+# SA1209: A using-alias directive is positioned before a regular using directive.
+dotnet_diagnostic.SA1209.severity = warning
+
+# SA1210: Using directives should be ordered alphabetically by namespace
+dotnet_diagnostic.SA1210.severity = warning
+
+# SA1212: Property accessors should follow order
+dotnet_diagnostic.SA1212.severity = warning
+
+# SA1214: A readonly field is positioned beneath a non-readonly field.
+dotnet_diagnostic.SA1214.severity = warning
+
+# SA1217: The using static directives within a C# code file are not sorted alphabetically by full type name.
+dotnet_diagnostic.SA1217.severity = warning
+
+# SA1300: The name of a C# element does not begin with an upper-case letter.
+dotnet_diagnostic.SA1300.severity = warning
+
+# SA1302: The name of a C# interface does not begin with the capital letter I.
+dotnet_diagnostic.SA1302.severity = warning
+
+# SA1303: The name of a constant C# field should begin with an upper-case letter.
+dotnet_diagnostic.SA1303.severity = warning
+
+# SA1309: Field names should not begin with underscore
+dotnet_diagnostic.SA1309.severity = none
+
+# SA1313: Parameter names should begin with lower-case letter
+dotnet_diagnostic.SA1313.severity = none
+
+# SA1314: The name of a C# type parameter does not begin with the capital letter T.
+dotnet_diagnostic.SA1314.severity = warning
+
+# SA1400: Access modifier should be declared
+dotnet_diagnostic.SA1400.severity = error
+
+# SA1401: Fields should be private
+dotnet_diagnostic.SA1401.severity = none
+
+# SA1404: Code analysis suppression should have justification
+dotnet_diagnostic.SA1404.severity = error
+
+# SA1408: Conditional expressions should declare precedence
+dotnet_diagnostic.SA1408.severity = error
+
+# SA1413: Use trailing comma in multi-line initializers
+dotnet_diagnostic.SA1413.severity = none
+
+# SA1501: Statement should not be on a single line
+dotnet_diagnostic.SA1501.severity = error
+
+# SA1505: Opening braces should not be followed by blank line
+dotnet_diagnostic.SA1505.severity = error
+
+# SA1507: Code should not contain multiple blank lines in a row
+dotnet_diagnostic.SA1507.severity = error
+
+# SA1508: Closing braces should not be preceded by blank line
+dotnet_diagnostic.SA1508.severity = error
+
+# SA1512: Single-line comments should not be followed by blank line
+dotnet_diagnostic.SA1512.severity = error
+
+# SA1513: Closing brace should be followed by blank line
+dotnet_diagnostic.SA1513.severity = error
+
+# SA1514: Element documentation header should be preceded by blank line
+dotnet_diagnostic.SA1514.severity = error
+
+# SA1515: Single-line comment should be preceded by blank line
+dotnet_diagnostic.SA1515.severity = error
+
+# SA1516: Elements should be separated by blank line
+dotnet_diagnostic.SA1516.severity = error
+
+# SA1518: Use line endings correctly at end of file
+dotnet_diagnostic.SA1518.severity = error
+
+# SA1600: Elements should be documented
+dotnet_diagnostic.SA1600.severity = warning
+
+# SA1601: Partial elements should be documented
+dotnet_diagnostic.SA1601.severity = warning
+
+# SA1602: Enumeration items should be documented
+dotnet_diagnostic.SA1602.severity = none
+
+# SA1611: Element parameters should be documented
+dotnet_diagnostic.SA1611.severity = warning
+
+# SA1614: Element parameter documentation should have text
+dotnet_diagnostic.SA1614.severity = warning
+
+# SA1615: Element return value should be documented
+dotnet_diagnostic.SA1615.severity = warning
+
+# SA1616: Element return value documentation should have text
+dotnet_diagnostic.SA1616.severity = warning
+
+# SA1618: Generic type parameters should be documented
+dotnet_diagnostic.SA1618.severity = warning
+
+# SA1622: Generic type parameter documentation should have text
+dotnet_diagnostic.SA1622.severity = warning
+
+# SA1623: Property summary documentation should match accessors
+dotnet_diagnostic.SA1623.severity = none
+
+# SA1625: Element documentation should not be copied and pasted
+dotnet_diagnostic.SA1625.severity = warning
+
+# SA1627: Documentation text should not be empty
+dotnet_diagnostic.SA1627.severity = warning
+
+# SA1629: Documentation text should end with a period
+dotnet_diagnostic.SA1629.severity = warning
+
+# SA1633: File should have header
+dotnet_diagnostic.SA1633.severity = none
+
+# SA1642: Constructor summary documentation should begin with standard text
+dotnet_diagnostic.SA1642.severity = none
+
+# Test projects files
+[**/Tests/**.cs]
+dotnet_diagnostic.SA1135.severity = none
+dotnet_diagnostic.SA1402.severity = none
+dotnet_diagnostic.SA1414.severity = none
+dotnet_diagnostic.SA1600.severity = none
