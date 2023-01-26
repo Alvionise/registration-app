@@ -1,5 +1,4 @@
-﻿using DomainService.WebApi.Queries.Country.Responses;
-using System.Net;
+﻿using System.Net;
 using DomainService.WebApi.Queries.Province.Requests;
 using FluentValidation;
 using MediatR;

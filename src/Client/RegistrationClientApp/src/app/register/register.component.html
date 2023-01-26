@@ -1,0 +1,105 @@
+<!-- <nz-steps>
+  <nz-step nzTitle="Step one" *ngIf="doneStepOne === true" [nzStatus]="doneStepOne ? 'finish' : 'process'" nzIcon="user"></nz-step>
+  <nz-step nzTitle="Step one" *ngIf="doneStepOne === false" [nzStatus]="doneStepOne ? 'finish' : 'process'" nzIcon="loading"></nz-step>
+  <nz-step nzTitle="Step two" *ngIf="doneStepOne === true" [nzStatus]="doneStepTwo ? 'finish' : 'process'" nzIcon="loading"></nz-step>
+  <nz-step nzTitle="Step two" *ngIf="doneStepOne === false" [nzStatus]="doneStepTwo ? 'process' : 'finish'" nzIcon="solution"></nz-step>
+  <nz-step nzTitle="Done" [nzStatus]="doneStepOne && doneStepTwo ? 'finish' : 'wait'" [nzIcon]="iconTemplate"></nz-step>
+  <ng-template #iconTemplate><span nz-icon nzType="smile"></span></ng-template>
+</nz-steps> -->
+  <div *ngIf="doneStepOne === false" [@inOutAnimation]>
+    <h1>Step 1</h1>
+    <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" style="max-width: 100% !important;">
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+          <input nz-input formControlName="email" id="email" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password! Password must contain 1 digit and 1 letter.">
+          <input
+            nz-input
+            type="password"
+            id="password"
+            formControlName="password"
+            (ngModelChange)="updateConfirmValidator()"
+          />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>Confirm Password</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
+          <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
+          <ng-template #errorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">Please confirm your password!</ng-container>
+            <ng-container *ngIf="control.hasError('confirm')">
+              Two passwords that you enter is inconsistent!
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6" nzErrorTip="You must be willing to work for food!">
+          <label nz-checkbox formControlName="agree">
+            <span>
+              I agree work for food
+            </span>
+          </label>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button nz-button nzType="primary" [disabled]="validateForm.valid === false">Next</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+
+
+  <div *ngIf="doneStepOne === true && doneLastStep === false" [@inOutAnimation]>
+    <h1>Step 2</h1>
+    <form nz-form [formGroup]="validateFormRegister" (ngSubmit)="submitRegisterForm()" style="max-width: 100% !important;">
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="country" nzRequired>Country</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please select your country!">
+          <nz-select
+            id="country"
+            formControlName="country"            
+            [(ngModel)]="selectedCountry"
+            (ngModelChange)="countryChange()"
+          >
+          <nz-option *ngFor="let item of countries" [nzLabel]="item.name" [nzValue]="item"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="province" nzRequired>Province</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please select your province!">
+          <nz-select
+            id="province"
+            formControlName="province"
+            [(ngModel)]="selectedProvince"
+          >
+          <nz-option *ngFor="let item of provinces" [nzLabel]="item.name" [nzValue]="item"></nz-option>
+        </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item nz-row class="register-area">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button nz-button nzType="primary" [disabled]="validateFormRegister.valid === false">Register</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+  <div *ngIf="doneLastStep === true" [@inOutAnimation]>
+    <nz-result
+    nzStatus="success"
+    nzTitle="Successfully registered!"
+    nzSubTitle="Done flow with userId"
+  >
+    <div nz-result-extra>
+      {{userId}}
+    </div>
+  </nz-result>
+  </div>
