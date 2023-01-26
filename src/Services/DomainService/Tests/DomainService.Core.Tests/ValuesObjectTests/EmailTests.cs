@@ -1,6 +1,10 @@
 ﻿using DomainService.ValueObjects.Email;
 
 namespace DomainService.Core.Tests.ValuesObjectTests;
+
+/// <summary>
+/// Test for VO Email
+/// </summary>
 public class EmailTests
 {
     private readonly EmailValidator _validator = new();

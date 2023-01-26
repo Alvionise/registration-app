@@ -3,6 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DomainService.Dal.EntityConfigurations;
+
+/// <summary>
+/// EF configuration for base entities
+/// </summary>
+/// <typeparam name="TEntity">Base entity</typeparam>
+/// <typeparam name="TKey">Primary key</typeparam>
 public abstract class BaseEntityConfiguration<TEntity, TKey> : IEntityTypeConfiguration<TEntity>
     where TEntity : class, IEntity<TKey>
 {

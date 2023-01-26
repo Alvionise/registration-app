@@ -3,6 +3,9 @@ using Xunit;
 
 namespace DomainService.Integration.Tests;
 
+/// <summary>
+/// Integration test for Country Controller
+/// </summary>
 public class ContryControllerTests
     : IClassFixture<WebApplicationFactory<Program>>
 {

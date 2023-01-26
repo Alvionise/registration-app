@@ -1,6 +1,10 @@
 ﻿using DomainService.ValueObjects.Password;
 
 namespace DomainService.Core.Tests.ValuesObjectTests;
+
+/// <summary>
+/// Test for VO Password
+/// </summary>
 public class PasswordTests
 {
     private readonly PasswordValidator _validator = new();

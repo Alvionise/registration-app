@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace DomainService.Dal;
 
 /// <summary>
-/// Extension for IServiceCollection
+/// Extension for IServiceCollection, register DbContext with connection string and params
 /// </summary>
 public static class ContextBootstrapper
 {

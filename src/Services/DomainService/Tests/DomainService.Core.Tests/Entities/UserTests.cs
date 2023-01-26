@@ -1,6 +1,10 @@
 ﻿using DomainService.Core.Domain.Entities;
 
 namespace DomainService.Core.Tests.Entities;
+
+/// <summary>
+/// Test for User
+/// </summary>
 public class UserTests
 {
     private readonly IFixture _fixture;

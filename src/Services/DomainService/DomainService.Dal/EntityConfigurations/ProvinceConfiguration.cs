@@ -3,6 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DomainService.Dal.EntityConfigurations;
+
+/// <summary>
+/// EF configuration for Province entity
+/// </summary>
 public class ProvinceConfiguration : BaseEntityConfiguration<Province, Guid>
 {
     public override void Configure(EntityTypeBuilder<Province> builder)

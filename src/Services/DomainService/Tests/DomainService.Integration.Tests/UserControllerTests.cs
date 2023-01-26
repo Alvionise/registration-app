@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
 
 namespace DomainService.Integration.Tests;
+
+/// <summary>
+/// Integration test for User Controller
+/// </summary>
 public class UserControllerTests
     : IClassFixture<WebApplicationFactory<Program>>
 {

@@ -3,6 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DomainService.Dal.EntityConfigurations;
+
+/// <summary>
+/// EF configuration for Country entity
+/// </summary>
 public class CountryConfiguration : BaseEntityConfiguration<Country, Guid>
 {
     public override void Configure(EntityTypeBuilder<Country> builder)

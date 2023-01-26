@@ -1,6 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
 namespace DomainService.Dal.Abstractions;
+
+/// <summary>
+/// Unit of work contract
+/// </summary>
+/// <typeparam name="TContext">DbContext</typeparam>
 public interface IUnitOfWork<TContext> where TContext : DbContext
 {
     /// <summary>

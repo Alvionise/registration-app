@@ -2,6 +2,12 @@
 using DomainService.Core.Domain.Contracts;
 
 namespace DomainService.Dal.Abstractions;
+
+/// <summary>
+/// Command repository contract
+/// </summary>
+/// <typeparam name="TEntity">Entity</typeparam>
+/// <typeparam name="TKey">Entity primary key</typeparam>
 public interface ICommandRepository<TEntity, TKey>
     where TEntity : class, IEntity<TKey>
 {

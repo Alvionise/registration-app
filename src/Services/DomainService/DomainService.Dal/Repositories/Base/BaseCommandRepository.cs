@@ -5,6 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DomainService.Dal.Repositories.Base;
 
+/// <summary>
+/// Base implementation for read and write repo
+/// </summary>
+/// <typeparam name="TEntity">Entity</typeparam>
+/// <typeparam name="TContext">DbContext</typeparam>
+/// <typeparam name="TKey">Primary key</typeparam>
 public abstract class BaseCommandRepository<TEntity, TContext, TKey> : BaseQueryRepository<TEntity, TContext, TKey>, ICommandRepository<TEntity, TKey>
     where TEntity : class, IEntity<TKey>, IAggregateRoot
     where TContext : DbContext

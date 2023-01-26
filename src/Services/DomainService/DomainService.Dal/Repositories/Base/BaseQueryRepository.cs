@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DomainService.Dal.Repositories.Base;
 
 /// <summary>
-/// Base repository for QueryHandlers with read actions
+/// Base implrementation repository for QueryHandlers with read actions
 /// </summary>
 /// <typeparam name="TEntity">Entity</typeparam>
 /// <typeparam name="TContext">Db Context</typeparam>

@@ -9,6 +9,10 @@ using Moq;
 using DomainService.WebApi.Commands.User.Request;
 
 namespace DomainService.Handler.Tests.CommandHandlers;
+
+/// <summary>
+/// Test for User command handler for example
+/// </summary>
 public class CreateUserCommandHandlerTests
 {
     private readonly Mock<ICommandRepository<User, Guid>> _commandRepository = new();

@@ -5,6 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DomainService.WebApi.Controllers;
+
 [Route("api/[controller]")]
 [ApiController]
 public class CountriesController : ControllerBase

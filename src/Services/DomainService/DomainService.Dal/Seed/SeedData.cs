@@ -2,6 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace DomainService.Dal.Seed;
+
+/// <summary>
+/// Seed data extension
+/// </summary>
 public static class SeedData
 {
     public static void Seed(this ModelBuilder modelBuilder)

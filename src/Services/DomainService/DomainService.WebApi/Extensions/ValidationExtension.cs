@@ -7,6 +7,10 @@ using DomainService.WebApi.Queries.Province.Requests;
 using FluentValidation;
 
 namespace DomainService.WebApi.Extensions;
+
+/// <summary>
+/// Extension for validators registration
+/// </summary>
 internal static class ValidationExtension
 {
     public static IServiceCollection RegisterValidation(this IServiceCollection services)

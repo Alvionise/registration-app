@@ -3,6 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DomainService.Dal.EntityConfigurations;
+
+/// <summary>
+/// EF config for User entity
+/// </summary>
 public class UserConfiguration : BaseEntityConfiguration<User, Guid>
 {
     public override void Configure(EntityTypeBuilder<User> builder)

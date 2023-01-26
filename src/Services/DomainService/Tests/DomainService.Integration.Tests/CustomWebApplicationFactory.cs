@@ -6,6 +6,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DomainService.Integration.Tests;
+
+/// <summary>
+/// Factory for creation host web api with inMemory DB for example
+/// </summary>
+/// <typeparam name="TProgram"></typeparam>
 public class CustomWebApplicationFactory<TProgram>
     : WebApplicationFactory<TProgram> where TProgram : class
 {

@@ -4,6 +4,10 @@ using DomainService.Dal.Abstractions;
 using DomainService.Dal.Repositories;
 
 namespace DomainService.WebApi.Extensions;
+
+/// <summary>
+/// Extension for repositories registration
+/// </summary>
 public static class RepositoriesExtensions
 {
     public static IServiceCollection RegisterRepositories(this IServiceCollection services)
