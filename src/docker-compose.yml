@@ -6,6 +6,16 @@ services:
     build:
       context: .
       dockerfile: Services/DomainService/DomainService.WebApi/Dockerfile
+    depends_on:
+      - postgres
+
+  domainservice.webapi.bff:
+    image: ${DOCKER_REGISTRY-}domainservicewebapi.bff
+    build:
+      context: .
+      dockerfile: Bff/BaseBff/Dockerfile
+    depends_on:
+      - domainservice.webapi
 
   registrationclient.app:
     image: ${DOCKER_REGISTRY-}registrationclient.app
@@ -16,6 +26,11 @@ services:
   postgres:
     restart: always
     image: postgres
+
+  postgres-admin:
+    image: dpage/pgadmin4
+    depends_on:
+      - postgres
 
 volumes:
   node_modules:

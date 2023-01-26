@@ -11,6 +11,15 @@ services:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
 
+  domainservice.webapi.bff:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+    ports:
+      - '5050:5000'
+    volumes:
+      - ./Bff/Web.Bff.Registration/ocelot.registration.service.json:/app/ocelot.json
+
   registrationclient.app:
     ports:
         - "4000:80"
@@ -22,6 +31,15 @@ services:
         POSTGRES_USER: 'sa'
         POSTGRES_PASSWORD: 'Qwerty123'
         POSTGRES_DB: domain-db
+
+  postgres-admin:
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'sa@sa.com'
+      PGADMIN_DEFAULT_PASSWORD: 'Qwerty123'
+    ports:
+      - 5544:80
+    volumes:
+      - ./pgadmin-servers.json:/pgadmin4/servers.json
 
 volumes:
   node_modules:
