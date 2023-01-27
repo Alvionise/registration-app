@@ -7,5 +7,5 @@ Back-end: BFF Api with Ocelot, REST Web Api (App implemented with CQRS approach 
  3. Wait until all docker containers are ready </br>
  4. Open http://localhost:4000/ (SPA) or http://localhost:5000/ (Api) or http://localhost:5050/api/countries (BFF) </br>
  
- <h2>Domain</h2>
- ![image](https://user-images.githubusercontent.com/10520875/215026049-2bab1eb9-029e-4a87-b93f-1bc6c628aa79.png)
+ <h2>Domain model</h2>
+ https://user-images.githubusercontent.com/10520875/215026049-2bab1eb9-029e-4a87-b93f-1bc6c628aa79.png
